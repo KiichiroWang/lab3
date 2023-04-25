@@ -2,7 +2,7 @@
 
 ### Part 1)
 
-Here is the code for StringServer:
+StringServer Code:
 
 ```
 import java.io.IOException;
@@ -44,24 +44,31 @@ class SearchEngine {
     }
 }
 ```
+
+Screenshots of StringServer website queries:
+
 __Screenshot 1__
+
 ![Screenshot 1](Screenshot1.PNG)
 
-For the first screenshot the main methods being called are the handleRequest method. The method takes in a URI argument which I presume is what gives
-the method what the user added to the URL. The main relevant value of the method
-is the "message" string in which is what the user adds onto. From the 
-add-message request the "message" string will be concantenated with the new 
-string input from the URL arguemnt.
+For the first screenshot the main methods being called are the handleRequest() method. The method takes in a URI argument 
+which I presume is what gives the method what the user added to the URL. The main relevant value of the method is the "message" 
+string, which is the string variables the user adds onto. From the add-message request the "message" string will be concantenated 
+with the new string input from the URL argument and then printed out.
+
+__Screenshot 2__
 
 ![Screenshot 2](screenshot2.PNG)
 
-For screen shot 2, the exact same methods, arguments, and fields are utilized.
-The only difference is that the entire message is once again printed
-with the previous messages included.
+For screen shot 2 -- the exact same methods, arguments, and fields are utilized. The only difference is that the entire message 
+is once again printed with the previous messages included.
+
 
 ### Part 2)
 
-Failure Induced Input
+This part includes the various testing of the testReversed() method.
+
+__Failure Induced Input__
 ```
   @Test
   public void testReversed() {
@@ -71,16 +78,20 @@ Failure Induced Input
   }
 ```
 
-Non Failure Inducing Input
+__Non Failure Inducing Input__
 ```
-int[] input1 = { };
+  @Test
+  public void testReversed() {
+    int[] input1 = { };
     assertArrayEquals(new int[]{ }, ArrayExamples.reversed(input1));
+  }
 ```
 
-Symptom
+__Symptom__
+
 ![Screenshot 3](screenshot3.PNG)
 
-The Bug
+__The Bug__
 Before:
 ```
 static int[] reversed(int[] arr) {
@@ -89,27 +100,28 @@ static int[] reversed(int[] arr) {
       arr[i] = newArray[arr.length - i - 1];
     }
     return arr;
-
-  }
+}
   ```
  
  After
  
- ```  static int[] reversed(int[] arr) {
+ ```  
+ static int[] reversed(int[] arr) {
     int[] newArray = new int[arr.length];
     for(int i = 0; i < arr.length; i += 1) {
       newArray[i] = arr[arr.length - i - 1];
     }
     return newArray;
-  }
+}
   ```
+
+The main fix consisted of swapping the *newArray* and *arr* values. As most of the time the inputs would be properly
+reversed but into the wrong array and using values from the incorrect array. As a result the returned array
+would be filled with zeros. Therefore by swapping the two arrays, the correct values are reversed and put
+into the correct array.
   
-  The main fixed consisted of swapping the newArray and arr values. As most of the time the inputs would be properly
-  reversed but into the wrong array and using values from the incorrect array. As a result the returned array
-  would be filled with zeros. Therefor eby swapping thne two arrays, the correct values are reversed and put
-  intot the correc tarray.
   
-  
-  ### Part 3)
-  
-  The main thing I learned was how seemingly simple it was to create a website with GIT
+### Part 3)
+
+The main thing I learned was how seemingly simple it was to create a website with Github. The markdown aspect feels like a very easy way
+to format the text file instead of the more technical html+CSS+javascript combo of more traditional web development. 
