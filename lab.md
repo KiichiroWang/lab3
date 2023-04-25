@@ -51,6 +51,7 @@ __Screenshot 1__
 
 ![Screenshot 1](Screenshot1.PNG)
 
+
 For the first screenshot the main methods being called are the handleRequest() method. The method takes in a URI argument 
 which I presume is what gives the method what the user added to the URL. The main relevant value of the method is the "message" 
 string, which is the string variables the user adds onto. From the add-message request the "message" string will be concantenated 
@@ -59,6 +60,7 @@ with the new string input from the URL argument and then printed out.
 __Screenshot 2__
 
 ![Screenshot 2](screenshot2.PNG)
+
 
 For screen shot 2 -- the exact same methods, arguments, and fields are utilized. The only difference is that the entire message 
 is once again printed with the previous messages included.
@@ -90,6 +92,7 @@ __Non Failure Inducing Input__
 __Symptom__
 
 ![Screenshot 3](screenshot3.PNG)
+
 
 __The Bug__
 Before:
