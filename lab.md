@@ -45,3 +45,5 @@ class SearchEngine {
 }
 ```
 
+![Screenshot 1](Screenshot1.png)
+![Screenshot 2](screenshot2.png)
